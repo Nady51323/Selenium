@@ -37,7 +37,6 @@ public class CallbackTest {
 
     @Test
     void testHappyPathRussianLettersSpace() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Андрей Андреев");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79118000000");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
@@ -48,7 +47,6 @@ public class CallbackTest {
 
     @Test
     void testHappyPathHyphen() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Андрей-Андреев");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79118000000");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
@@ -59,7 +57,6 @@ public class CallbackTest {
 
     @Test
     void testInvalidDataFirstNameLastName() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Andru Andreev");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79118000000");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
@@ -70,7 +67,6 @@ public class CallbackTest {
 
     @Test
     void testEmptyFieldNameSurname() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79118000000");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
@@ -81,7 +77,6 @@ public class CallbackTest {
 
     @Test
     void testInvalidPhoneNumber() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Андрей Андреев");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("89118000000");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
@@ -92,7 +87,6 @@ public class CallbackTest {
 
     @Test
     void testEmptyFieldPhoneNumber() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Андрей Андреев");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
@@ -103,13 +97,11 @@ public class CallbackTest {
 
     @Test
     void testConsentCheckboxNotChecked() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Андрей Андреев");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79118000000");
         driver.findElement(By.cssSelector(".button__text")).click();
         String text = driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid .checkbox__text")).getText().trim();
         assertEquals("Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй", text);
     }
-
 
 }
